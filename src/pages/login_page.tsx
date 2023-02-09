@@ -2,6 +2,7 @@ import {useRef , useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom'
+import "./login.css"
 
 
 const Login_page= (props:any)=>{
@@ -22,7 +23,7 @@ const Login_page= (props:any)=>{
         return false;
     }
     function email_validation():boolean{
-        if (!email.length ){
+        if (email.search("@") == -1 ){
             set_email_error(true);
             return true}
             return false;
@@ -36,10 +37,15 @@ const Login_page= (props:any)=>{
         const phone_el:any = ref.current.phone;
         const email_el:any = ref.current.email;
         console.log(name_el, phone_el ,email_el)
-        if ((phone_validation() && email_validation())=== false){
+        if ((phone_validation()===true && email_validation())=== true){
 
             return false;
         }
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("phone", phone);
+        localStorage.setItem("email", email);
+
         navigate("/data_table");
     }
 
