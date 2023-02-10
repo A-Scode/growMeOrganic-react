@@ -33,9 +33,9 @@ const Login_page= (props:any)=>{
         // e.stopPropagation();
         e.preventDefault();
         
-        const name_el:any = ref.current.name?;
-        const phone_el:any = ref.current.phone?;
-        const email_el:any = ref.current.email?;
+        const name_el:any = ref.current.name?ref.current.name:null;
+        const phone_el:any = ref.current.phone?ref.current.phone:null;
+        const email_el:any = ref.current.email?ref.current.email:null;
         if ((phone_validation()===true) && (email_validation()=== true)){
             console.log("validation failed")
             return false;
