@@ -56,7 +56,7 @@ const Login_page= (props:any)=>{
 
             <TextField
           required
-          ref = {el=>ref.current.name = el}
+          
           id="name"
           label="Name"
         name= "details_form"
@@ -71,7 +71,7 @@ const Login_page= (props:any)=>{
           label="Phone Number"
           type="number"
           inputProps={{inputMode: 'numeric', pattern: '[0-9]*'}}
-          ref = {el=>ref.current.phone = el}
+          
         name= "details_form"
         value={ phone}
         onChange = {e=>set_phone(e.target.value)}
@@ -84,7 +84,7 @@ const Login_page= (props:any)=>{
           id="email"
           label="Email"
           type="email"
-          ref = {el=>ref.current.email = el}
+          
         name= "details_form"
         value={ email}
         onChange = {e=>set_email(e.target.value)}
