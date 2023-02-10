@@ -7,6 +7,17 @@ import axios from 'axios'
 const DataTable= (props:any)=>{
     const navigate  =useNavigate();
     const [rows , set_rows] = useState([]);
+    
+    interface fetched_data {
+    [index: string]: { 
+    id : number,
+    title : string,
+    price: number | string,
+    category : string,
+    [ key : string] : any
+    }
+}
+
     const columns =[
         {field : 'id' , headerName : 'SNo.' , width:50},
         {field : 'title' , headerName : 'Title' , width:150},
