@@ -39,7 +39,7 @@ const DataTable= (props:any)=>{
             open:true,msg:"Login to access page"
         })
         console.table(localStorage)
-        // navigate("/");
+        navigate("/");
     }
     localStorage.clear()
 } , 100)
