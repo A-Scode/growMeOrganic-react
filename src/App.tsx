@@ -4,7 +4,7 @@ import { Snackbar } from '@mui/material'
 import Alert from '@mui/material/Alert'
 import './App.css'
 import Login_page from './pages/login_page'
-import {createBrowserRouter , RouterProvider} from 'react-router-dom'
+import {createHashRouter , RouterProvider} from 'react-router-dom'
 import DataTable from './pages/data_table'
 
 
@@ -12,7 +12,7 @@ function App() {
 
   const [toast , set_toast]=useState({open:false , msg:"login to open page" })
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path:"/",
       element:<Login_page/>
