@@ -1,7 +1,7 @@
 import {useRef , useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Navigate} from 'react-router-dom'
 import "./login.css"
 
 
@@ -29,38 +29,39 @@ const Login_page= (props:any)=>{
             return false;
     }
 
-    const submitForm = (e)=>{
-        e.stopPropagation();
+    const submitForm = (e:any)=>{
+        // e.stopPropagation();
         e.preventDefault();
         
         const name_el:any = ref.current.name;
         const phone_el:any = ref.current.phone;
         const email_el:any = ref.current.email;
-        console.log(name_el, phone_el ,email_el)
-        if ((phone_validation()===true && email_validation())=== true){
-
+        if ((phone_validation()===true) && (email_validation()=== true)){
+            console.log("validation failed")
             return false;
         }
-
+        
+        
         localStorage.setItem("name", name);
         localStorage.setItem("phone", phone);
         localStorage.setItem("email", email);
+        
+        navigate("data_table")
 
-        navigate("/data_table");
     }
 
     return(
         <div className="full_page">
             <h1>Login Form</h1>
 
-            <form name = "form" className='details_form' onSubmit={submitForm}>
+            <form name = "details_form"  className='details_form' onSubmit={submitForm}>
 
             <TextField
           required
           ref = {el=>ref.current.name = el}
           id="name"
           label="Name"
-        name= "detials_form"
+        name= "details_form"
         value={ name}
         onChange = {e=>set_name(e.target.value)}
         />
@@ -73,7 +74,7 @@ const Login_page= (props:any)=>{
           type="number"
           inputProps={{inputMode: 'numeric', pattern: '[0-9]*'}}
           ref = {el=>ref.current.phone = el}
-        name= "detials_form"
+        name= "details_form"
         value={ phone}
         onChange = {e=>set_phone(e.target.value)}
 
@@ -86,13 +87,13 @@ const Login_page= (props:any)=>{
           label="Email"
           type="email"
           ref = {el=>ref.current.email = el}
-        name= "detials_form"
+        name= "details_form"
         value={ email}
         onChange = {e=>set_email(e.target.value)}
         />
 
         <Button variant="contained"
-        name= "detials_form"
+        name= "details_form"
         type='submit'
         >Submit</Button>
 
