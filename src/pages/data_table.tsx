@@ -28,7 +28,7 @@ const DataTable= (props:any)=>{
             open:true,msg:"Login to access page"
         })
         console.table(localStorage)
-        navigate("/");
+        // navigate("/");
     }
     localStorage.clear()
 } , 100)
@@ -46,7 +46,8 @@ const DataTable= (props:any)=>{
     return(
         <div className="full_page">
             <h1>Data Table</h1>
-            <DataGrid sx={{height:"400px"}} rows = {rows} columns={columns} 
+            <DataGrid sx={{  height:"400px" , width: "480px"  }} 
+            rows = {rows} columns={columns} 
             
             /> 
         </div>
